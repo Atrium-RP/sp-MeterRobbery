@@ -29,8 +29,8 @@ QBCore.Functions.CreateCallback('sp-MeterRobbery:server:ScrewDriverSet', functio
     local ScrewdriverScan = Player.Functions.GetItemByName(item)
     if ScrewdriverScan then
         cb(true)
-        Player.Functions.RemoveItem(Config.RequiredItem, 1)
-        TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Config.RequiredItem], 'remove', 1)
+        --Player.Functions.RemoveItem(Config.RequiredItem, 1)
+        --TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Config.RequiredItem], 'remove', 1)
     else
         cb(false)
     end
@@ -41,7 +41,7 @@ RegisterNetEvent('sp-MeterRobbery:server:AddMoney', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
 
-    Player.Functions.AddMoney('cash', Config.RewardMoney, 'Parking Meter Payout')
+    Player.Functions.AddMoney('cash', math.random(Config.RewardMoneyMin, Config.RewardMoneyMax), 'Parking Meter Payout')
 end)
 
 -- On Resource Start (Console Notification) --
